@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OutPass - Sign Up</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #fda085 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+    @keyframes gradientBG {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 20px; padding: 40px;
+      width: 100%; max-width: 420px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .logo { text-align: center; margin-bottom: 30px; }
+    .logo .icon { font-size: 50px; display: block; }
+    .logo h1 {
+      font-size: 26px; font-weight: 700;
+      background: linear-gradient(135deg, #667eea, #f5576c);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-top: 8px;
+    }
+    .logo p { color: #888; font-size: 13px; margin-top: 4px; }
+    .flash { padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; font-weight: 500; }
+    .flash.error   { background: #ffe0e0; color: #c0392b; border-left: 4px solid #e74c3c; }
+    .flash.success { background: #d4edda; color: #155724; border-left: 4px solid #28a745; }
+    label { display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px; margin-top: 16px; }
+    input {
+      width: 100%; padding: 12px 14px;
+      border: 2px solid #e0e0e0; border-radius: 10px;
+      font-size: 15px; outline: none; background: #fafafa;
+    }
+    input:focus { border-color: #667eea; box-shadow: 0 0 0 4px rgba(102,126,234,0.15); background: #fff; }
+    .btn {
+      width: 100%; padding: 13px; margin-top: 24px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white; border: none; border-radius: 10px;
+      font-size: 16px; font-weight: 600; cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(102,126,234,0.45); }
+    .switch { margin-top: 18px; text-align: center; font-size: 13px; color: #666; }
+    .switch a { color: #667eea; font-weight: 600; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">
+      <span class="icon">📝</span>
+      <h1>Create Account</h1>
+      <p>OutPass System-ல register பண்ணு</p>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+
+    <form method="POST" action="/signup">
+      <label>👤 Username</label>
+      <input type="text" name="username" placeholder="புது username" required autofocus />
+
+      <label>🔒 Password</label>
+      <input type="password" name="password" placeholder="Password" required />
+
+      <label>🔒 Confirm Password</label>
+      <input type="password" name="confirm" placeholder="Password மறுபடியும்" required />
+
+      <button type="submit" class="btn">✅ Sign Up</button>
+    </form>
+
+    <p class="switch">Already account இருக்கா? <a href="/login">Login பண்ணு</a></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "staff": {
+    "password": "123",
+    "role": "student"
+  },
+  "priya": {
+    "password": "priya123",
+    "role": "student"
+  },
+  "priyadharshini": {
+    "password": "priya123",
+    "role": "student"
+  },
+  "jeyachandran": {
+    "password": "jeya123",
+    "role": "student"
+  },
+  "Ramya": {
+    "password": "ramya123",
+    "role": "student"
+  },
+  "keerthi": {
+    "password": "keerthi123",
+    "role": "student"
+  },
+  "velmayil": {
+    "password": "vel123",
+    "role": "student"
+  }
+}
